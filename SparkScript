@@ -1,2 +1,0 @@
-#!/bin/bash
-/opt/mapr/spark/spark-2.1.0/bin/spark-submit --class project.kafka.cs257.SparkAnalyser ./target/log_analyzer-1.0-jar-with-dependencies.jar /user/user01/Streams/log_analyser:unprocessed_logs /user/user01/Streams/log_analyser:processed_logs mycg1 300
