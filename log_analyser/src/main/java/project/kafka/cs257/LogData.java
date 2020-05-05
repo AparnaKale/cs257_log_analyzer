@@ -58,59 +58,10 @@ public class LogData implements Serializable {
 		return v1 + v2;
 	};
 
-//	static PairFunction<logData, Integer, Integer> mapRC = (log) -> {
-//		return new Tuple2<Integer, Integer>(log.getRC(), 1);
-//	};
-
-//	static PairFunction<logData, String, Integer> mapTimeZone = (log) -> { // TimeZOne
-//		String timeZone = log.getDateTimeString().substring(log.getDateTimeString().length() - 4);
-//		return new Tuple2<String, Integer>(timeZone, 1);
-//	};
-
 	static PairFunction<LogData, String, Integer> mapTZWithRC = (log) -> {
 		String key = log.getTimeZone() + "+" + log.getRC();
 		return new Tuple2<String, Integer>(key, 1);
 	};
-
-//	static PairFunction<logData, String, Integer> mapIPAdd = (log) -> {
-//		return new Tuple2<String, Integer>(log.getIpAdd(), 1);
-//	};
-//
-//	static PairFunction<logData, String, Integer> mapRes = (log) -> {
-//		return new Tuple2<String, Integer>(log.getRes(), 1);
-//	};
-//
-//	static PairFunction<logData, String, Integer> mapResError = (log) -> {
-//		if (log.getRC() >= 400)
-//			return new Tuple2<String, Integer>(log.getRes(), 1);
-//		return new Tuple2<String, Integer>(log.getRes(), 0);
-//	};
-
-	// 200, 404 & 503
-
-//	static Function<Tuple2<Integer, Integer>, Boolean> rC2xx = (log) -> {
-//		if ((log._1() / 100) == 2)
-//			return true;
-//		return false;
-//	};
-//
-//	static Function<Tuple2<Integer, Integer>, Boolean> rC4xx = (log) -> {
-//		if ((log._1() / 100) == 4)
-//			return true;
-//		return false;
-//	};
-//
-//	static Function<Tuple2<Integer, Integer>, Boolean> rC5xx = (log) -> {
-//		if ((log._1() / 100) == 5)
-//			return true;
-//		return false;
-//	};
-//
-//	static Function<Tuple2<String, Integer>, Boolean> tupleity = (log) -> {
-//		if (log._2() != 0)
-//			return true;
-//		return false;
-//	};
 
 	static Function<Tuple2<String, Integer>, Boolean> checkRC503 = (log) -> {
 		String[] temp = log._1().split("\\+");
@@ -123,98 +74,15 @@ public class LogData implements Serializable {
 		return log.isValid();
 	};
 
-//	@Override
-//	public String toString() {
-//		return String.format("%s %s %s [%s] \"%s %s %s\" %s %s", ipAdd, clientID, uID, dtString, method, res, protocol,
-//				rCode, sizeOfContent);
-//	}
-
-//	String getIpAdd() {
-//		return ipAdd;
-//	}
-//
-//	String getClientID() {
-//		return clientID;
-//	}
-//
-//	String getUID() {
-//		return uID;
-//	}
-//
-//	String getDateTimeString() {
-//		return dtString;
-//	}
-//
 	String getTimeZone() {
 		return timeZone;
 	}
-//
-//	String getMethod() {
-//		return method;
-//	}
-//
+
 	int getRC() {
 		return rCode;
 	}
-//
-//	String getRes() {
-//		return res;
-//	}
-//
-//	String getProtocol() {
-//		return protocol;
-//	}
-//
-//	long getSizeOfContent() {
-//		return sizeOfContent;
-//	}
 
 	boolean isValid() {
 		return isLogValid;
 	}
-
-//	void setValid(boolean isValid) {
-//		this.isLogValid = isValid;
-//	}
-//
-//	void setUID(String uID) {
-//		this.uID = uID;
-//	}
-//
-//	void setIPAdd(String ipAdd) {
-//		this.ipAdd = ipAdd;
-//	}
-//
-//	void setClientID(String clientID) {
-//		this.clientID = clientID;
-//	}
-//
-//	void setRes(String res) {
-//		this.res = res;
-//	}
-//
-//	void setProtocol(String protocol) {
-//		this.protocol = protocol;
-//	}
-//
-//	void setRC(int rCode) {
-//		this.rCode = rCode;
-//	}
-//
-//	void setSizeOfContent(long sizeOfContent) {
-//		this.sizeOfContent = sizeOfContent;
-//	}
-//
-//	void setDateTimeString(String dtString) {
-//		this.dtString = dtString;
-//	}
-//
-//	void setTimeZone(String timeZone) {
-//		this.timeZone = timeZone;
-//	}
-//
-//	void setMethod(String method) {
-//		this.method = method;
-//	}
-
 }
