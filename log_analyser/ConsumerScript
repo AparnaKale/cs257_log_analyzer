@@ -1,0 +1,2 @@
+#!/bin/bash
+java -cp `mapr classpath`:./target/log_analyzer-1.0-jar-with-dependencies.jar project.kafka.cs257.KafkaLogConsumer /user/user01/Streams/log_analyser:processed_logs mycg2
