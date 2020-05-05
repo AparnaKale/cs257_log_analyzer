@@ -1,2 +1,0 @@
-#!/bin/bash
-java -cp `mapr classpath`:./target/log_analyzer-1.0-jar-with-dependencies.jar project.kafka.cs257.KafkaLogProducer /user/user01/term_project/log_source/access_log_Aug95 /user/user01/Streams/log_analyser:unprocessed_logs 2000
