@@ -1,0 +1,7 @@
+#!/bin/bash
+
+maprcli stream delete -path /user/user01/Streams/log_analyser
+maprcli stream create -path /user/user01/Streams/log_analyser
+maprcli stream topic create -path /user/user01/Streams/log_analyser -topic unprocessed_logs
+maprcli stream topic create -path /user/user01/Streams/log_analyser -topic processed_logs
+
